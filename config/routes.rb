@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :products do
     scope module: :products do
-      resources :purchases, only: [ :new ]
+      resources :purchases, only: [ :new, :create ] do
+        collection do
+          get :success, :cancel
+        end
+      end
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
