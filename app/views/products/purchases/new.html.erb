@@ -1,2 +1,14 @@
-<div data-controller="stripe">
+<div data-controller="stripe" class="h-screen w-full flex flex-col gap-2 items-center justify-center bg-gray-100">
+  <p>Buy this product for <%= number_to_currency(100.5) %></p>
+
+  <form action="<%= product_purchases_path %>" method="POST">
+    <%= csrf_meta_tags %>
+    <button
+      type="submit"
+      id="checkout-button"
+      class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline cursor-pointer"
+    >
+      Checkout
+    </button>
+  </form>
 </div>
